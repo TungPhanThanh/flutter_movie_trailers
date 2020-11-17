@@ -44,6 +44,7 @@ dependencies:
   json_serializable: ^3.3.0
   path_provider: ^1.6.10
   fluro: ^1.7.4
+  connectivity: ^0.4.9+3
 
   equatable: ^1.2.3
   get_it: ^4.0.4

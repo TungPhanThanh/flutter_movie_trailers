@@ -7,6 +7,7 @@ class NetModule extends DIModule{
   @override
   provides() async {
     final dio = await NetUtils.setup();
+    print('URL : ${dio.options.baseUrl}');
     getIt.registerSingleton(dio);
   }
 }

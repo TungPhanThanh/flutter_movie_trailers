@@ -1,7 +1,8 @@
 part of style;
 
 const Color mColorNavigationBar = Colors.black;
-const Color mColorBackground = Colors.white;
+final Color mColorBackground = HexColor.fromHex('#F6F6F6');
+final Color mColorSplashBackground = HexColor.fromHex('#2a3753');
 final Color mColorAccent = HexColor.fromHex('#33354E');
 
 extension HexColor on Color {

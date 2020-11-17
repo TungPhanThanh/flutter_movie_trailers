@@ -1,1 +1,4 @@
-{}
+{
+  "session_expired": "Session has expired",
+  "ok": "Ok"
+}

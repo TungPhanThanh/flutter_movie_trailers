@@ -8,7 +8,6 @@ enum Flavor { DEVELOPMENT, STAGING, PREPROD, RELEASE }
 class BuildConfig {
   const BuildConfig._(
       {@required this.baseUrl,
-      @required this.socketUrl,
       @required this.connectTimeout,
       @required this.receiveTimeout,
       @required this.flavor,
@@ -16,8 +15,7 @@ class BuildConfig {
 
   const BuildConfig._development()
       : this._(
-          baseUrl: '',
-          socketUrl: '',
+          baseUrl: 'https://api.themoviedb.org/3/',
           connectTimeout: 5000,
           receiveTimeout: 5000,
           flavor: Flavor.DEVELOPMENT,
@@ -25,24 +23,21 @@ class BuildConfig {
 
   const BuildConfig._staging()
       : this._(
-            baseUrl: '',
-            socketUrl: '',
+            baseUrl: 'https://api.themoviedb.org/3/',
             connectTimeout: 5000,
             receiveTimeout: 5000,
             flavor: Flavor.STAGING);
 
   const BuildConfig._preprod()
       : this._(
-            baseUrl: '',
-            socketUrl: '',
+            baseUrl: 'https://api.themoviedb.org/3/',
             connectTimeout: 5000,
             receiveTimeout: 5000,
             flavor: Flavor.PREPROD);
 
   const BuildConfig._release()
       : this._(
-            baseUrl: '',
-            socketUrl: '',
+            baseUrl: 'https://api.themoviedb.org/3/',
             connectTimeout: 5000,
             receiveTimeout: 5000,
             flavor: Flavor.RELEASE);
@@ -91,7 +86,6 @@ class BuildConfig {
   }
 
   final String baseUrl;
-  final String socketUrl;
   final int connectTimeout;
   final int receiveTimeout;
   final Flavor flavor;

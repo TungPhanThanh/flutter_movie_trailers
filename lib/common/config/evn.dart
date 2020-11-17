@@ -19,17 +19,19 @@ abstract class Env {
   }
 
   _init() {
-    runZoned(() async {
-      WidgetsFlutterBinding.ensureInitialized();
+    WidgetsFlutterBinding.ensureInitialized();
+    runZonedGuarded(() async {
       await const MethodChannel('flavor')
           .invokeMethod<String>('getFlavor')
           .then((String flavor) async {
         BuildConfig.init(flavor: flavor);
-      }).catchError((error) {});
+      }).catchError((error) {
+        BuildConfig.init(flavor: 'development');
+      });
 
       final StatefulWidget app = await onCreate();
       runApp(app);
-    }, onError: (Object obj, StackTrace stack) {
+    }, (Object obj, StackTrace stack) {
       print(obj);
       print(stack);
     });
