@@ -93,5 +93,4 @@ class User {
   @JsonKey(name: 'delete')
   bool delete;
 
-
 }

@@ -1,12 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie/common/router/router_define.dart';
-import 'package:flutter_movie/di/injection/injection.dart';
-import 'package:flutter_movie/page/home/bloc/bloc.dart';
-import 'package:flutter_movie/page/home/page/home_page.dart';
 
-class HomeRouter extends RouterDefine<BlocProvider> {
+class GenreRouter extends RouterDefine<BlocProvider> {
 
-  static const String PATH = '/home';
+  static const String PATH = '/genre';
 
   // Simple push only
   static void launch(context) {
@@ -22,8 +19,9 @@ class HomeRouter extends RouterDefine<BlocProvider> {
   List<String> definePaths() => [PATH];
 
   @override
-  BlocProvider initPage(context, param) => BlocProvider<HomeBloc>(
-    child: HomePage(),
-    create: (context) => getIt<HomeBloc>(),
-  );
+  BlocProvider<Cubit<Object>> initPage(context, param) {
+    // TODO: implement initPage
+    throw UnimplementedError();
+  }
+
 }
