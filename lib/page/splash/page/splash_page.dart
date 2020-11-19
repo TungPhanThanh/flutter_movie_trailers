@@ -6,8 +6,6 @@ import 'package:flutter_movie/common/utils/images.dart';
 import 'package:flutter_movie/di/injection/injection.dart';
 import 'package:flutter_movie/page/splash/bloc/bloc.dart';
 
-const logoWidth = 359.0;
-const logoHeight = 126.0;
 const delayLoadingSec = 1500;
 
 class SplashPage extends StatefulWidget {
@@ -32,12 +30,18 @@ class _SplashPageState extends BaseState<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Center(
         child: Container(
-          color: mColorSplashBackground,
           alignment: Alignment.center,
-          child: Text('splash screen', style: TextStyle(color: Colors.white),)
+          child: Image.asset(
+            mImgSplash,
+            fit: BoxFit.fill,
+            width: width,
+            height: height,
+          ),
         ),
       ),
     );
