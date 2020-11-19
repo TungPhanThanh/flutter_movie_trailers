@@ -1,0 +1,10 @@
+{
+  "dependencies": {},
+  "devDependencies": {
+    "@arkweid/lefthook": "^0.7.2"
+  },
+  "scripts": {
+    "setup": "npm install && npx lefthook install",
+    "generate": "flutter pub run build_runner build --delete-conflicting-outputs"
+  }
+}
