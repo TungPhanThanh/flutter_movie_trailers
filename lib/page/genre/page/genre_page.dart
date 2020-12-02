@@ -45,7 +45,6 @@ class _GenrePageState extends BaseState<GenrePage> {
           case GenreStatus.SUCCESS:
             break;
           case GenreStatus.ERROR:
-            // TODO: Handle this case.
             break;
         }
       },

@@ -10,12 +10,9 @@ class GenreBloc extends BaseBloc<GenreEvent, GenreState> {
 
   @override
   Stream<GenreState> mapEventToState(GenreEvent event) async* {
-    print('vao lan dau');
     if (event is GenreStarted) {
-      print('vao lan dau GenreStarted');
       yield* _mapRequestToState();
     } else if (event is GenreRequest) {
-      print('vao lan dau GenreRequest');
       yield* _mapRequestToState();
     }
   }
@@ -23,7 +20,6 @@ class GenreBloc extends BaseBloc<GenreEvent, GenreState> {
   Stream<GenreState> _mapRequestToState() async* {
     try {
       yield const GenreState.loading();
-      print('vao map');
       final data = await genreRepo.getListGenre();
       yield GenreState.success(data);
       print('data : ${data.genres}');
