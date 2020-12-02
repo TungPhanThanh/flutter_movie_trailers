@@ -52,6 +52,7 @@ class Movie {
   String originalTitle;
   String overview;
   double popularity;
+  @JsonKey(name: 'poster_path')
   String posterPath;
   List<ProductionCompany> productionCompanies;
   List<ProductionCountry> productionCountries;

@@ -4,6 +4,7 @@ import 'package:flutter_movie/common/config/core/base_state.dart';
 import 'package:flutter_movie/common/style/style.dart';
 import 'package:flutter_movie/common/utils/images.dart';
 import 'package:flutter_movie/di/injection/injection.dart';
+import 'package:flutter_movie/page/genre/genre_router.dart';
 import 'package:flutter_movie/page/home/home_router.dart';
 import 'package:flutter_movie/page/splash/bloc/bloc.dart';
 

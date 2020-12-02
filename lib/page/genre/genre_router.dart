@@ -1,5 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie/common/router/router_define.dart';
+import 'package:flutter_movie/di/injection/injection.dart';
+import 'package:flutter_movie/page/genre/bloc/genre_bloc.dart';
+import 'package:flutter_movie/page/genre/page/genre_page.dart';
 
 class GenreRouter extends RouterDefine<BlocProvider> {
 
@@ -19,9 +22,9 @@ class GenreRouter extends RouterDefine<BlocProvider> {
   List<String> definePaths() => [PATH];
 
   @override
-  BlocProvider<Cubit<Object>> initPage(context, param) {
-    // TODO: implement initPage
-    throw UnimplementedError();
-  }
+  BlocProvider initPage(context, param) => BlocProvider<GenreBloc>(
+    child: GenrePage(),
+    create: (context) => getIt<GenreBloc>(),
+  );
 
 }

@@ -7,6 +7,10 @@ abstract class HomeEvent extends Equatable {
 
 class HomeStarted extends HomeEvent {}
 
-class HomeRequest extends HomeEvent {
+class HomeRequestListNowPlaying extends HomeEvent {}
 
-}
+class HomeRequestListPopular extends HomeEvent {}
+
+class HomeRequestListTopRate extends HomeEvent {}
+
+class HomeRequestListUpcoming extends HomeEvent {}
