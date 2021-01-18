@@ -27,7 +27,7 @@ class _CustomCachedNetworkImageState extends State<CustomCachedNetworkImage> {
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
-      fit: BoxFit.fitWidth,
+      fit: BoxFit.cover,
       width: widget.widthImage,
       height: widget.heightImage,
       imageUrl: widget.imageUrl,

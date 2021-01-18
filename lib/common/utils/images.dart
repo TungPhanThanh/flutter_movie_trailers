@@ -13,3 +13,4 @@ const mImgChangePassSuccess = mImgPath + 'img_change_pass_success.png';
 const mIconMovie = mImgPath + 'film.png';
 const mIconCategory = mImgPath + 'list.png';
 const mIconSetting = mImgPath + 'settings.png';
+const mImgPlaceHolder = mImgPath + 'placeholder.png';
