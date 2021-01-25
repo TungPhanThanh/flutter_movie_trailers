@@ -1,5 +1,6 @@
 class Constants {
   static const API_KEY = 'd0558e51b04e5c5ca6c4a20908b8599d';
+  static const IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
   static const LANGUAGE_EN = 'en';
   static const LANGUAGE_KO = 'ko';
 

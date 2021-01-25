@@ -1,6 +1,10 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_movie/common/utils/constants.dart';
+import 'package:flutter_movie/common/utils/images.dart';
+import 'package:flutter_movie/common/widgets/common_loading.dart';
 import 'package:flutter_movie/common/widgets/custom_cached_network_image.dart';
+import 'package:flutter_movie/common/widgets/loading/circle.dart';
 
 class CommonItemMovie extends StatefulWidget {
   final String imageUrl;
@@ -24,22 +28,38 @@ class _CommonItemMovieState extends State<CommonItemMovie> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.only(right: 10.0),
       child: Column(
         children: [
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8.0),
-            ),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(8.0),
             child: CustomCachedNetworkImage(
-              imageUrl: 'https://image.tmdb.org/t/p/w500' + widget.imageUrl,
-              widthImage: 120.0,
+              imageUrl: Constants.IMAGE_URL + widget.imageUrl,
+              widthImage: 140.0,
               heightImage: 200.0,
               heightPlaceholder: 200.0,
-              widthPlaceholder:  120.0,
-              errorWidget: Container(),
+              widthPlaceholder: 140.0,
+              paddingPlaceholder: 0,
+              errorWidget: Image.asset(
+                mImgPlaceHolder,
+                width: 140.0,
+                height: 200.0,
+              ),
+              placeholderWidget: Container(
+                width: double.infinity,
+                height: double.infinity,
+                color: Colors.white,
+                child: const CommonLoading(type: LoadingType.CIRCLE,),
+              ),
             ),
           ),
-          Text(widget.title),
+          Container(
+              width: 140.0,
+              child: Text(
+                widget.title,
+                maxLines: 2,
+                textAlign: TextAlign.center,
+              )),
         ],
       ),
     );
