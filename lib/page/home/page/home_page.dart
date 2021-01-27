@@ -2,8 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie/common/config/core/base_state.dart';
+import 'package:flutter_movie/common/style/style.dart';
 import 'package:flutter_movie/common/widgets/common_item_movie.dart';
 import 'package:flutter_movie/common/widgets/common_loading.dart';
+import 'package:flutter_movie/page/detail_movie/detail_movie_router.dart';
 import 'package:flutter_movie/page/genre/page/genre_page.dart';
 import 'package:flutter_movie/page/home/bloc/bloc.dart';
 import 'package:flutter_movie/page/home/bloc/home_bloc.dart';
@@ -112,8 +114,11 @@ class _MoviePageState extends BaseState<MoviePage> {
         }
       },
       builder: (context, state) {
-        return Scaffold(
-          body: state.status == HomeStatus.LOADING ? _loading() : _body(),
+        return SafeArea(
+          child: Scaffold(
+            backgroundColor: mColorBackGroundPage,
+            body: state.status == HomeStatus.LOADING ? _loading() : _body(),
+          ),
         );
       },
     );
@@ -129,59 +134,89 @@ class _MoviePageState extends BaseState<MoviePage> {
   }
 
   Widget _body() {
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Container(
-            height: 80.0,
-            margin: EdgeInsets.only(left: 24.0, right: 24.0),
-            child: Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    'MOVIES',
-                    style: TextStyle(fontSize: 20.0),
-                  ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Container(
+          height: 80.0,
+          margin: EdgeInsets.only(left: 24.0, right: 24.0),
+          child: Row(
+            children: [
+              Expanded(
+                child: Text(
+                  'MOVIES',
+                  style: TextStyle(fontSize: 20.0),
                 ),
-                Icon(Icons.search),
+              ),
+              Icon(Icons.search),
+            ],
+          ),
+        ),
+        Expanded(
+          child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Column(
+              children: [
+                itemMovies(_listPopular, 'Popular'),
+                itemMovies(_listNowPlaying, 'Now Playing'),
+                itemMovies(_listTopRated, 'Top rated'),
+                itemMovies(_listUpcoming, 'UpComing'),
               ],
             ),
           ),
-          SizedBox(
-            height: 25.0,
-          ),
-          itemMovies(_listPopular, 'Popular'),
-          itemMovies(_listNowPlaying, 'Now Playing'),
-          itemMovies(_listTopRated, 'Top rated'),
-          itemMovies(_listUpcoming, 'UpComing'),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
   Widget itemMovies(List<Movie> list, String title) {
     return Container(
+      margin: const EdgeInsets.symmetric(vertical: 18.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-              margin: EdgeInsets.only(left: 24.0, bottom: 16.0),
-              child: Text(
-                title,
-                style: TextStyle(),
-              )),
+          Row(
+            children: [
+              Expanded(
+                child: Container(
+                    margin: EdgeInsets.only(left: 24.0, bottom: 16.0),
+                    child: Text(
+                      title,
+                      style: CommonTextStyle.textStyleFontQuicksand.copyWith(
+                          color: Colors.black, fontSize: 28.0, fontWeight: FontWeight.w800),
+                    )),
+              ),
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  margin: const EdgeInsets.only(right: 8.0),
+                  child: Row(
+                    children: [
+                      Text('See more'),
+                      Icon(Icons.chevron_right),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
           Container(
             height: 250.0,
             child: ListView.builder(
+              physics: const BouncingScrollPhysics(),
               padding: EdgeInsets.only(left: 24.0),
               itemCount: list == null ? 0 : list.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
-                return CommonItemMovie(
-                  imageUrl: list[index].posterPath,
-                  title: list[index].title,
+                return GestureDetector(
+                  onTap: () {
+                    _getDetail(list[index]);
+                  },
+                  child: CommonItemMovie(
+                    imageUrl: list[index].posterPath,
+                    title: list[index].title,
+                  ),
                 );
               },
             ),
@@ -189,5 +224,9 @@ class _MoviePageState extends BaseState<MoviePage> {
         ],
       ),
     );
+  }
+
+  void _getDetail(Movie movie){
+    DetailMovieRouter.launch(context, movie);
   }
 }

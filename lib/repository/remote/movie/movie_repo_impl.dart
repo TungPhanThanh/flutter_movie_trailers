@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_movie/common/config/core/base_repo.dart';
 import 'package:flutter_movie/common/utils/constants.dart';
+import 'package:flutter_movie/repository/model/entity/movie.dart';
 import 'package:flutter_movie/repository/model/response/get_list_movie_res.dart';
 import 'package:flutter_movie/repository/model/service/movie_service.dart';
 import 'package:flutter_movie/repository/remote/movie/movie_repo.dart';
@@ -67,5 +68,10 @@ class MoviesRepoImpl extends BaseRepo implements MovieRepo {
       page: page,
       region: region,
     );
+  }
+
+  @override
+  Future<Movie> getDetailMovie(String movieId) {
+    return _movieService.getDetailMovie(movieId);
   }
 }

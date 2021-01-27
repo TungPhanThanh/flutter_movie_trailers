@@ -24,6 +24,7 @@ class Main extends Env {
     };
     await Injection.inject();
     await Storage.getInstance();
+    await SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
