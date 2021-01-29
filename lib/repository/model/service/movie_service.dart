@@ -44,5 +44,8 @@ abstract class MovieService {
   });
 
   @GET('movie/{id}')
-  Future<Movie> getDetailMovie(@Path() String id);
+  Future<Movie> getDetailMovie({
+    @Query('api_key') String apiKey = Constants.API_KEY,
+    @Path() String id,
+  });
 }

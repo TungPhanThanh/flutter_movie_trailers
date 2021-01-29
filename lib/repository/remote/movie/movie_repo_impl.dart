@@ -71,7 +71,7 @@ class MoviesRepoImpl extends BaseRepo implements MovieRepo {
   }
 
   @override
-  Future<Movie> getDetailMovie(String movieId) {
-    return _movieService.getDetailMovie(movieId);
+  Future<Movie> getDetailMovie(String movieId,) {
+    return _movieService.getDetailMovie(id: movieId);
   }
 }

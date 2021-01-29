@@ -27,8 +27,8 @@ class Main extends Env {
     await SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
-        statusBarIconBrightness: Brightness.dark,
+        statusBarColor: Colors.grey,
+        statusBarIconBrightness: Brightness.light,
         systemNavigationBarColor: mColorNavigationBar,
         systemNavigationBarIconBrightness: Brightness.light,
       ),

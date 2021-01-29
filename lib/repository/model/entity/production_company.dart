@@ -16,7 +16,9 @@ class ProductionCompany {
   Map<String, dynamic> toJson() => _$ProductionCompanyToJson(this);
 
   int id;
+  @JsonKey(name: 'logo_path')
   String logoPath;
   String name;
+  @JsonKey(name: 'origin_country')
   String originCountry;
 }
