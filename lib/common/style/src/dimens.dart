@@ -29,4 +29,6 @@ const double mDividerBold = 2.0;
 const double mFontSizeSmall = 14.0;
 const double mFontSizeMedium = 16.0;
 const double mFontSizeLarge = 18.0;
-const double mFontSizeTitleHeader = 24.0;
+const double mFontSizeXLarge = 20.0;
+const double mFontSizeXXLarge = 24.0;
+const double mFontSizeXXXLarge = 32.0;

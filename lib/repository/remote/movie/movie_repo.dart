@@ -1,3 +1,4 @@
+import 'package:flutter_movie/repository/model/entity/movie.dart';
 import 'package:flutter_movie/repository/model/response/get_list_movie_res.dart';
 
 abstract class MovieRepo {
@@ -28,4 +29,6 @@ abstract class MovieRepo {
     int page,
     String region,
   });
+
+  Future<Movie> getDetailMovie(String movieId);
 }

@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_movie/common/utils/constants.dart';
+import 'package:flutter_movie/repository/model/entity/movie.dart';
 import 'package:flutter_movie/repository/model/response/get_list_movie_res.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -39,5 +41,11 @@ abstract class MovieService {
     @Query('language') String language = 'en-US',
     @Query('page') int page,
     @Query('region') String region,
+  });
+
+  @GET('movie/{id}')
+  Future<Movie> getDetailMovie({
+    @Query('api_key') String apiKey = Constants.API_KEY,
+    @Path() String id,
   });
 }

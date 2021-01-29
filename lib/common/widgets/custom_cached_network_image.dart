@@ -11,23 +11,25 @@ class CustomCachedNetworkImage extends StatefulWidget {
     this.paddingPlaceholder,
     this.placeholderWidget,
     this.errorWidget,
+    this.fit,
   });
+
   final double widthImage, heightImage;
   final String imageUrl;
   final double widthPlaceholder, heightPlaceholder, paddingPlaceholder;
   final Widget placeholderWidget;
   final Widget errorWidget;
+  final BoxFit fit;
 
   @override
-  _CustomCachedNetworkImageState createState() =>
-      _CustomCachedNetworkImageState();
+  _CustomCachedNetworkImageState createState() => _CustomCachedNetworkImageState();
 }
 
 class _CustomCachedNetworkImageState extends State<CustomCachedNetworkImage> {
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
-      fit: BoxFit.cover,
+      fit: widget.fit ?? BoxFit.fill,
       width: widget.widthImage,
       height: widget.heightImage,
       imageUrl: widget.imageUrl,

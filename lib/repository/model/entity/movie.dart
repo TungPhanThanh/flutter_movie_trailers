@@ -41,29 +41,39 @@ class Movie {
   Map<String, dynamic> toJson() => _$MovieToJson(this);
 
   bool adult;
+  @JsonKey(name: 'backdrop_path')
   String backdropPath;
+  @JsonKey(name: 'belongs_to_collection')
   BelongsToCollection belongsToCollection;
   int budget;
   List<Genre> genres;
   String homepage;
   int id;
+  @JsonKey(name: 'imdb_id')
   String imdbId;
   String originalLanguage;
+  @JsonKey(name: 'original_title')
   String originalTitle;
   String overview;
   double popularity;
   @JsonKey(name: 'poster_path')
   String posterPath;
+  @JsonKey(name: 'production_companies')
   List<ProductionCompany> productionCompanies;
+  @JsonKey(name: 'production_countries')
   List<ProductionCountry> productionCountries;
+  @JsonKey(name: 'release_date')
   DateTime releaseDate;
   int revenue;
   int runtime;
+  @JsonKey(name: 'spoken_languages')
   List<SpokenLanguage> spokenLanguages;
   String status;
   String tagline;
   String title;
   bool video;
+  @JsonKey(name: 'vote_average')
   double voteAverage;
+  @JsonKey(name: 'vote_count')
   int voteCount;
 }
