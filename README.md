@@ -62,7 +62,7 @@ https://pub.dev/packages/get_it
   - Release:
     - IOS: ```flutter build ios -t lib/main/main_production.dart --flavor production```
     - Android: ```flutter build apk -t lib/main/main_production.dart --flavor production```
-
+    
 - Script build.sh build:
   - run: ./build.sh $environment
     ```note:
