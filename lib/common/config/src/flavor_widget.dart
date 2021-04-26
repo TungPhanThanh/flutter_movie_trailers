@@ -16,7 +16,6 @@ class FlavorWidget extends StatelessWidget {
     return FlavorBanner(
       child: Scaffold(
         resizeToAvoidBottomInset: resizeToAvoidBottomInset,
-        resizeToAvoidBottomPadding: resizeToAvoidBottomPadding,
         backgroundColor: mColorBackground,
         body: _body(isUseSafeArea,child),
       ),
